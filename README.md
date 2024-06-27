@@ -1,6 +1,6 @@
-Yoga Teacher Landing Page | HTML, CSS & Vanilla JS Tutorial #yoga#yogateacher #landingpage #website #frontend #responsive #frontenddeveloper #tutorial
+Created Yoga Teacher Landing Page 
 
-It contains: 
+Contains: 
 1- Yoga challenge slider 
 2- Yoga video section 
 3- Courses slider 
