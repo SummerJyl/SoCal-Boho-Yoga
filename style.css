@@ -368,67 +368,86 @@ h2 span {
     padding: 1em;
 } 
 
-.level, 
+.level,
 .teacher {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1em;
+  display: flex;           /* make these flex containers */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
 }
 
 .icon,
 .profile,
 .time {
-    align-items: center;
-    gap: 0.5em;
+  display: flex;           /* add display flex here for proper alignment */
+  align-items: center;
+  gap: 0.5em;
 }
 
 .icon .row {
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    fill: transparent;
-    stroke: var(--c1--4--);
-    background: var(--c1--6--);
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+  display: flex;           /* ensure flex inside icon row */
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  fill: transparent;       /* fill transparent is fine */
+  stroke: var(--c1--4--);
+  background: var(--c1--6--);
+  border-radius: 50%;
+  /* vendor prefixes can be removed for modern browsers */
 }
 
 h5 {
-    font-weight: 700;
-    font-size: 18px;
-    text-transform: capitalize;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin: 0;               /* reset margin for better spacing */
 }
 
-.level+h5 {
-    padding: 1em 0;
+.level + h5 {
+  padding: 1em 0;
 }
 
 .profile .row {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
+  display: flex;           /* add flex for image container */
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5em;     /* spacing between image and text */
 }
 
 .profile img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+  width: 100%;
+  height: 100%;            /* ensure image fills container */
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .teacher p {
-    text-transform: capitalize;
+  text-transform: capitalize;
+  margin: 0;               /* reset margin */
+  line-height: 1;          /* tighter line height */
 }
 
 .time {
-    fill: var(--c1--6--);
+  fill: var(--c1--6--);
+  display: flex;           /* added flex to align svg and text */
+  align-items: center;
+  gap: 0.25em;
+}
+
+.time svg {
+  width: 24px;             /* consistent smaller icon size */
+  height: 24px;
+  fill: var(--c1--6--);
+}
+
+/* Optional: Add some spacing between profile and time */
+.teacher .profile,
+.teacher .time {
+  margin-right: 1em;
 }
 
 /* End Customize */
