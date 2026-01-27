@@ -58,13 +58,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       prevEl: ".course-slider .swiper-button-prev",
     },
     breakpoints: {
-      640: {
+      768: {
         slidesPerView: 2,
-        spaceBetween: 30,
+        spaceBetween: 20,
       },
-      1170: {
+      1024: {
         slidesPerView: 3,
-        spaceBetween: 40,
+        spaceBetween: 30,
       },
     },
   });
