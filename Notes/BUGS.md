@@ -54,8 +54,22 @@ Bug log for SoCal Boho Yoga landing page. Follows the same format as NutriSight'
 
 ### 5. Benefit cards stacking instead of 3-across
 **Symptom:** Member Benefits cards displayed in a single stacked column instead of a 3-column grid (unlike Teachers section, which displayed correctly).
-**Root cause:** Class name typo/mismatch — HTML used `class="benefits-cards column"` (plural "benefits"), but the CSS grid rule was written as `.benefit-cards` (singular "benefit"). The selector never matched, so only the generic `.column` class (`display: grid`, no column count) applied, defaulting to single-column stacking.
-**Fix:** Renamed CSS selector from `.benefit-cards` to `.benefits-cards` to match the HTML.
+**Root cause:** Class name mismatch — HTML used `class="benefit-cards column"` (singular "benefit"), but the CSS grid rule was written as `.benefits-cards` (plural "benefits"). The selector never matched, so only the generic `.column` class (`display: grid`, with no responsive columns) applied, defaulting to single-column stacking.
+**Fix:** Corrected the CSS selector to `.benefit-cards` and explicitly added `display: grid` with responsive columns using `grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))`. This restores side-by-side cards on wider screens while allowing them to stack on narrow mobile screens.
+**Files:** `style.css`
+
+---
+
+### 7. Customize MP4 not loading after video replacement
+**Symptom:** The replacement video did not load in the Customize section, although `yoga.mp4` worked.
+**Root cause:** The Customize partial used `../videos/yoga.mp4`. Partials are fetched into the root `index.html`, so the browser resolves the video URL relative to the page URL, not relative to the `partials/` folder. The replacement file was also named `BlkGirl_Yoga.mp4`.
+**Fix:** Updated the video source in `customize.html` to `./videos/BlkGirl_Yoga.mp4`, which resolves from the root page and points to the new file.
+**Files:** `customize.html`
+
+### 8. Sections too large after layout was restored
+**Symptom:** Customize and Challenge sections took up too much vertical space, and the Member Benefits cards needed a more compact presentation.
+**Root cause:** The sections used generous shared padding and large heading/media limits. Once the benefits grid was corrected, the cards also needed explicit grid styling and smaller image limits.
+**Fix:** Reduced section padding and section heading sizes, limited Customize content width, reduced benefit image height, and capped Challenge slider images at `420px` while preserving responsive sizing.
 **Files:** `style.css`
 
 ---

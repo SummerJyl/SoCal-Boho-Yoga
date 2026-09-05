@@ -249,7 +249,7 @@ h4 {
 
 /* Benefit */
 .benefit, .challenge {
-    padding: 2em 0;
+    padding: 1em 0;
 }
 
 .heading { 
@@ -267,7 +267,8 @@ h2 span {
     text-transform: capitalize
 }
 
-.benefits-cards {
+.benefit-cards {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2em;
 }
@@ -284,7 +285,7 @@ h2 span {
 }
 
 .b-card img {
-    max-height: 220px;
+    max-height: 160px;
 }
 
 .b-card h3{
@@ -296,8 +297,25 @@ h2 span {
 
 /* Customize */
 .customize {
-    padding: 2em 0;
+    padding: 1em 0;
     overflow: hidden;
+}
+
+.customize .heading,
+.challenge .heading {
+    padding-bottom: 1em;
+}
+
+.customize .heading h2,
+.challenge .heading h2,
+.benefit .heading h2 {
+    font-size: clamp(32px, 7vw, 52px);
+    line-height: clamp(38px, 7vw, 58px);
+}
+
+.customize-content {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .img, 
@@ -332,7 +350,7 @@ h2 span {
 
 .c-card {
     background: var(--c1--4--);
-    margin-top: 2em;
+    margin-top: 1em;
     overflow: hidden;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -462,8 +480,8 @@ h5 {
 
 .challenge-slider img {
     width: 100%;
+    height: min(55vw, 420px);
     object-fit: cover;
-    max-height: 600px;
 }
 
 .arrow {
