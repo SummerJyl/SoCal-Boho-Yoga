@@ -172,6 +172,36 @@ nav a:hover::after {
     min-height: calc(100vh - 80.2px);
 }
 
+.hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em;
+}
+
+.hero-content {
+    flex: 1 1 30em;
+}
+
+.badge-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+.more-than {
+    flex: 0 0 auto;
+    margin: 0;
+    text-align: left;
+    font-size: clamp(38px, 6vw, 50px);
+    line-height: 1.05;
+}
+
 h1, 
 h1 span {
     font-weight: 700;
@@ -215,7 +245,7 @@ p {
 .number-class {
     flex-wrap: wrap-reverse;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 1em;
 }
 
@@ -227,9 +257,13 @@ h4 {
 }
 
 .number {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 200px;
     text-align: center;
     align-items: center;
     justify-content: center;
+    gap: 0;
     width: 200px;
     height: 200px;
     background: var(--c1--7--);
@@ -242,7 +276,11 @@ h4 {
 
 .number h1 {
     font-size: clamp(40px, 10vw, 70px);
-    line-height: clamp(45px, 10vw, 75px);
+    line-height: 0.9;
+}
+
+.number p {
+    line-height: 1;
 }
 
 /* End Hero Section */
@@ -821,6 +859,19 @@ footer ul a:hover {
 
 /* Media */
 @media screen and (max-width:950px) {
+    .hero-inner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .badge-wrapper {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.75em;
+        width: 100%;
+        margin-left: 0;
+    }
+
     .toggleMenu {
         cursor: pointer;
         background-image: url(../icons/hamburger.svg);
